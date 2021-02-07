@@ -1,0 +1,32 @@
+<%- include('../Layout/header') %>
+    <div class="container d-flex flex-column align-items-center">
+        <h1 class="mt-4">Exam Creation</h1>
+        <div class="col-md-6">
+            <form action="/exam/create" method="POST">
+                <div class="mb-3">
+                    <label for="Title" class="form-label">Title</label>
+                    <input name="Title" id="Title" class="form-control" type="text" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Date" class="form-label">Date</label>
+                    <input name="Date" id="Date" class="form-control" type="date" required />
+                </div>
+                <div class="mb-3">
+                    <label for="StartAt" class="form-label">Start at</label>
+                    <input name="StartAt" id="StartAt" class="form-control" type="time" required />
+                </div>
+                <div class="mb-3">
+                    <label for="FinishAt" class="form-label">Finish at</label>
+                    <input name="FinishAt" id="FinishAt" class="form-control" type="time" required />
+                </div>
+                <div class="mb-3">
+                    <label for="NumberOfQuestions" class="form-label">Number of questions</label>
+                    <input name="NumberOfQuestions" id="NumberOfQuestions" class="form-control" type="number" required />
+                </div>
+                <div>
+                    <button class="btn btn-primary btn-block">CREATE</button>
+                </div>
+            </form>
+        </div>
+    </div>
+<%- include('../Layout/footer') %>

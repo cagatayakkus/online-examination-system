@@ -1,0 +1,31 @@
+<%- include('../Layout/header') %>
+    <div class="container d-flex flex-column align-items-center">
+        <h1>Preview of the exam</h1>
+        <% papers.map(paper=> { %>
+            <div class="card mb-3 col-md-6">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= paper.Question.Text %>
+                    </h5>
+                    <h6 class="card-subtitle mb-3 text-muted">Correct Answer: <%= paper.Question.Answer %>
+                    </h6>
+                    <h6 class="card-subtitle mb-3 text-muted 
+                    <% if(paper.Question.Answer == paper.Answer) { %>
+                        text-success
+                    <% } %>
+                    ">User Answer: <%= paper.Answer %>
+                    </h6>
+                    <h6 class="<%= paper.Question.Answer === paper.Answer ? 'text-success' : 'text-danger' %>"><%= paper.Question.Answer === paper.Answer ? 'Correct' : 'False' %></h6>
+                    <p class="card-text">A) <%= paper.Question.OptionA %>
+                    </p>
+                    <p class="card-text">B) <%= paper.Question.OptionB %>
+                    </p>
+                    <p class="card-text">C) <%= paper.Question.OptionC %>
+                    </p>
+                    <p class="card-text">D) <%= paper.Question.OptionD %>
+                    </p>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+    <%- include('../Layout/footer') %>

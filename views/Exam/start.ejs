@@ -1,0 +1,32 @@
+<%- include('../Layout/header') %>
+    <div class="container d-flex flex-column align-items-center">
+        <h1>
+            <b>
+                <%= exam.Title %>
+            </b>
+        </h1>
+        <p>
+            Date: <b>
+                <%= exam.Date %>
+            </b>
+        </p>
+        <p>
+
+            Start at: <b>
+                <%= exam.StartAt %>
+            </b>
+        </p>
+        <p>
+            Finish at: <b>
+                <%= exam.FinishAt %>
+            </b>
+        </p>
+        <p>
+            Number of questions: <b>
+                <%= exam.NumberOfQuestions %>
+            </b>
+        </p>
+        <p><b>NOTE:</b> By starting the exam, you accept the rules published by your institution.</p>
+        <a class="btn btn-primary" href="/exam/take/<%= exam.ID %>">START</a>
+    </div>
+    <%- include('../Layout/footer') %>

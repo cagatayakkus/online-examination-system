@@ -1,0 +1,15 @@
+<%- include('Layout/header') %>
+    <div class="container d-flex flex-column align-items-center">
+        <h1 class="mt-4">Dashboard</h1>
+        <%- include('partials/messages') %>
+        <p>Welcome <b>
+                <%= user.FirstName %>
+            </b></p>
+        <% if(user.Type=="Teacher" ) { %>
+            
+            <%- include('Dashboard/teacher') %>
+        <% } else if(user.Type=="Student" ) { %>
+            <%- include('Dashboard/student') %>
+        <% } %>
+    </div>
+    <%- include('Layout/footer') %>

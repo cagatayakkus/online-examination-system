@@ -1,0 +1,58 @@
+<%- include('../Layout/header') %>
+    <div class="container d-flex flex-column align-items-center">
+        <h1 class="mt-4">Questions</h1>
+        <div class="col-md-6 mb-5">
+            <form action="/question/create" method="POST">
+                <% for(let index=0; index < exam.NumberOfQuestions; index++) { %>
+                    <div class="mb-3">
+                        <label for="Question_<%= index %>" class="form-label">
+                            <%= index + 1%>. Question
+                        </label>
+                        <input name="Question_<%= index %>" id="Question_<%= index %>" class="form-control"
+                            type="text" />
+                    </div>
+                    <div class="mb-1">
+                        <label for="OptionA_<%= index %>" class="form-label">
+                            Option A for <%= index + 1%>. Question
+                        </label>
+                        <input name="OptionA_<%= index %>" id="OptionA_<%= index %>" class="form-control" type="text" />
+                    </div>
+                    <div class="mb-1">
+                        <label for="OptionB_<%= index %>" class="form-label">
+                            Option B for <%= index + 1%>. Question
+                        </label>
+                        <input name="OptionB_<%= index %>" id="OptionB_<%= index %>" class="form-control" type="text" />
+                    </div>
+                    <div class="mb-1">
+                        <label for="OptionC_<%= index %>" class="form-label">
+                            Option C for <%= index + 1%>. Question
+                        </label>
+                        <input name="OptionC_<%= index %>" id="OptionC_<%= index %>" class="form-control" type="text" />
+                    </div>
+                    <div class="mb-1">
+                        <label for="OptionD_<%= index %>" class="form-label">
+                            Option D for <%= index + 1%>. Question
+                        </label>
+                        <input name="OptionD_<%= index %>" id="OptionD_<%= index %>" class="form-control" type="text" />
+                    </div>
+                    <div class="mb-1">
+                        <label for="Answer_<%= index %>" class="form-label">
+                            Answer for <%= index + 1%>. Question
+                        </label>
+                        <input name="Answer_<%= index %>" id="Answer_<%= index %>" class="form-control" type="text" />
+                    </div>
+                    <hr class="my-5">
+                    <% } %>
+                    <div>
+                        <input type="hidden" name="ID" value="<%= exam.ID %>">
+                        <input type="hidden" name="Title" value="<%= exam.Title %>">
+                        <input type="hidden" name="NumberOfQuestions" value="<%= exam.NumberOfQuestions %>">
+                        <input type="hidden" name="Date" value="<%= exam.Date %>">
+                        <input type="hidden" name="StartAt" value="<%= exam.StartAt %>">
+                        <input type="hidden" name="FinishAt" value="<%= exam.FinishAt %>">
+                    </div>
+                    <button class="btn btn-primary btn-block">SUBMIT</button>
+            </form>
+        </div>
+    </div>
+    <%- include('../Layout/footer') %>

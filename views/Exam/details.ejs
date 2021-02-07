@@ -1,0 +1,33 @@
+<%- include('../Layout/header') %>
+    <div class="container d-flex flex-column align-items-center">
+        <h1>Details of <%= exam.Title %></h1>
+        <div class="m-3">
+            <div>
+                <h5>
+                    Exam code: <%= exam.ID %>
+                </h5>
+            </div>
+            <div>
+                Date: <%= exam.Date %>
+            </div>
+            <div>
+
+                Start at: <%= exam.StartAt %>
+            </div>
+            <div>
+
+                Finish at: <%= exam.FinishAt %>
+            </div>
+        </div>
+        <ul class="col-md-8 list-group">
+            <% takenExams.map(exam=> { %>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <%= exam.User.FirstName %>
+                    <div>
+                        <a class="btn btn-secondary" href="/exam/paper/<%= exam.ID %>">DETAILS</a>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+    <%- include('../Layout/footer') %>

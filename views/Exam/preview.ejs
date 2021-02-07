@@ -1,0 +1,47 @@
+<%- include('../Layout/header') %>
+    <div class="container d-flex flex-column align-items-center">
+        <h1>Preview of the exam</h1>
+        <div class="m-3">
+            <div>
+                <h5>
+                    <%= exam.Title %>
+                </h5>
+            </div>
+            <div>
+                <h5>
+                    Join with: <%= exam.ID %>
+                </h5>
+            </div>
+            <div>
+                Date: <%= exam.Date %>
+            </div>
+            <div>
+
+                Start at: <%= exam.StartAt %>
+            </div>
+            <div>
+
+                Finish at: <%= exam.FinishAt %>
+            </div>
+        </div>
+        <% questions.map(question=> { %>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= question.Text %>
+                    </h5>
+                    <h6 class="card-subtitle mb-3 text-muted">Answer: <%= question.Answer %>
+                    </h6>
+                    <p class="card-text">A) <%= question.OptionA %>
+                    </p>
+                    <p class="card-text">B) <%= question.OptionB %>
+                    </p>
+                    <p class="card-text">C) <%= question.OptionC %>
+                    </p>
+                    <p class="card-text">D) <%= question.OptionD %>
+                    </p>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+    <%- include('../Layout/footer') %>

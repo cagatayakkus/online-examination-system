@@ -1,0 +1,97 @@
+<%- include('../Layout/header') %>
+    <div class="container d-flex flex-column align-items-center">
+        <h1>Your exam has been started!</h1>
+        <p>
+            Start: <b>
+                <%= exam.StartAt%>
+            </b>
+        </p>
+        <p>
+            Finish: <b>
+                <%= exam.FinishAt%>
+            </b>
+        </p>
+        <p>
+            <%= exam.NumberOfQuestions%> question(s)
+        </p>
+        <div class="d-flex justify-content-center align-items-center mb-3 flex-wrap">
+            <% for (let index=0; index < exam.NumberOfQuestions; index++) { %>
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <%= index + 1 %>
+                        <div class="border border-secondary number d-flex justify-content-center align-items-center"
+                            style="width: 2rem; height: 2rem; cursor: pointer;" id="<%= `Index_${index}` %>">
+                            <b id="UserAnswer_<%= index %>">
+
+                            </b>
+                        </div>
+                </div>
+                <% } %>
+        </div>
+        <form class="col-md-6" action="/exam/take/<%= exam.ID %>" method="POST">
+            <% questions.map((question, index)=> { %>
+                <div class="card  mb-3" id="Question_<%= index %>" style="display: none;">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= question.Text %>
+                        </h5>
+                        <div class="form-check mb-1">
+                            <input class="form-check-input" type="radio" name="Answer_<%= index %>"
+                                id="OptionA_<%= index %>" value="A">
+                            <label class="form-check-label" for="OptionA_<%= index %>">
+                                <%= question.OptionA %>
+                            </label>
+                        </div>
+                        <div class="form-check mb-1">
+                            <input class="form-check-input" type="radio" name="Answer_<%= index %>"
+                                id="OptionB_<%= index %>" value="B">
+                            <label class="form-check-label" for="OptionB_<%= index %>">
+                                <%= question.OptionB %>
+                            </label>
+                        </div>
+                        <div class="form-check mb-1">
+                            <input class="form-check-input" type="radio" name="Answer_<%= index %>"
+                                id="OptionC_<%= index %>" value="C">
+                            <label class="form-check-label" for="OptionC_<%= index %>">
+                                <%= question.OptionC %>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Answer_<%= index %>"
+                                id="OptionD_<%= index %>" value="D">
+                            <label class="form-check-label" for="OptionD_<%= index %>">
+                                <%= question.OptionD %>
+                            </label>
+                        </div>
+                        <div>
+                            <input type="text" name="Question_<%= index %>" value="<%= question.ID %>" hidden>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+                <div>
+                    <input name="NumberOfQuestions" value="<%= exam.NumberOfQuestions %>" hidden>
+                </div>
+                <button class="btn btn-primary btn-block">SEND THE EXAM</button>
+        </form>
+    </div>
+    <%- include('../Layout/footer') %>
+
+        <script>
+            $(document).ready(() => {
+                let currentElement = $("#Question_0");
+                $("#Question_0").css('display', 'block');
+                $(".number").click(e => {
+                    const index = e.target.id.split("_")[1];
+                    console.log(`#Question_${index}`)
+                    currentElement.css('display', 'none');
+                    currentElement = $(`#Question_${index}`);
+                    currentElement.css('display', 'block');
+                })
+
+                $(".form-check-input").click(e => {
+                    $(`#UserAnswer_${e.target.id.split("_")[1]}`).
+                        text(e.target.id.split("_")[0].slice(-1));
+                })
+
+            })
+        </script>
