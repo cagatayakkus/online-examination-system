@@ -10,7 +10,7 @@ const sequelize = new Sequelize({
 });
 */
 
-const db = new Sequelize("examination", "cgtyakks", "Cagatay123*", {
+const db = new Sequelize("examination", "postgres", "Cagatay123*", {
   host: "cagatayakkuscc20.postgres.database.azure.com",
   dialect: "postgres",
 });
