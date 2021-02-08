@@ -1,3 +1,9 @@
 module.exports = (sequelize) => {
-  sequelize.define("Enrollment", {});
+  sequelize.define(
+    "Enrollment",
+    {},
+    {
+      timestamps: false,
+    }
+  );
 };

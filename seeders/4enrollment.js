@@ -15,14 +15,10 @@ module.exports = {
       {
         UserID: 2,
         ExamID: "cAt0lk",
-        createdAt: new Date(),
-        updatedAt: new Date(),
       },
       {
         UserID: 2,
         ExamID: "p0lk4c",
-        createdAt: new Date(),
-        updatedAt: new Date(),
       },
     ]);
   },

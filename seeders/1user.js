@@ -30,8 +30,6 @@ module.exports = {
         Email: "john@doe.com",
         Password: passwords[0],
         Type: "Teacher",
-        createdAt: new Date(),
-        updatedAt: new Date(),
       },
       {
         ID: 2,
@@ -40,8 +38,6 @@ module.exports = {
         Email: "jane@doe.com",
         Password: passwords[1],
         Type: "Student",
-        createdAt: new Date(),
-        updatedAt: new Date(),
       },
     ]);
   },

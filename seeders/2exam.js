@@ -20,8 +20,6 @@ module.exports = {
         FinishAt: "09:30",
         NumberOfQuestions: 2,
         UserID: 1,
-        createdAt: new Date(),
-        updatedAt: new Date(),
       },
       {
         ID: "p0lk4c",
@@ -31,8 +29,6 @@ module.exports = {
         FinishAt: "16:30",
         NumberOfQuestions: 1,
         UserID: 1,
-        createdAt: new Date(),
-        updatedAt: new Date(),
       },
     ]);
   },
