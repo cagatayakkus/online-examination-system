@@ -1,5 +1,3 @@
-node_modules
+/node_modules
 .env
-config/
-!config/auth.js
-!config/pasport.js
+/config/config.json
