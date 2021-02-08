@@ -1,20 +1,25 @@
 var express = require("express");
 const { ensureAuthenticated } = require("../config/auth");
-const sequelize = require("../sequelize");
-const { Exam, Enrollment, User } = sequelize.models;
+const db = require("../db");
+const { Exam, Enrollment, User } = db.models;
+const { hash } = require("../utilities");
 
 var router = express.Router();
 
 router.get("/", (req, res) => res.render("index"));
 
-router.get("/test", ensureAuthenticated, (req, res) =>
-  res.render("Test/test", {
-    user: req.user,
-  })
-);
+router.get("/test", async (req, res) => {
+  let pass = [];
+  const test = await hash("john123").then((hashed) => {
+    pass[0] = hashed;
+  });
+  console.log(pass);
+  res.render("Test/test");
+});
 
 router.get("/dashboard", ensureAuthenticated, async (req, res) => {
   const { ID, Type } = req.user;
+  const users = await User.findAll();
   const data =
     Type == "Student"
       ? await Enrollment.findAll({

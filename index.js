@@ -2,7 +2,7 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const cors = require("cors");
 const { Sequelize } = require("sequelize");
-const sequelize = require("./sequelize");
+const db = require("./db");
 const userRouter = require("./routes/UserRouter");
 const examRouter = require("./routes/ExamRouter");
 const homeRouter = require("./routes/HomeRouter");
@@ -27,7 +27,7 @@ app.use(express.static(__dirname + "/public"));
 // Session
 app.use(
   session({
-    key: 'user',
+    key: "user",
     secret: "highly secretted",
     resave: true,
     saveUninitialized: true,
@@ -49,19 +49,22 @@ app.use((req, res, next) => {
   next();
 });
 
-
-
-app.use("/", homeRouter)
+app.use("/", homeRouter);
 
 app.use("/exam", examRouter);
 
 app.use("/user", userRouter);
 
-app.use("/question", questionRouter)
+app.use("/question", questionRouter);
 
 const PORT = process.env.PORT || 5000;
 
-sequelize
+db
+  .authenticate()
+  .then(() => console.log("DB connection is successful"))
+  .catch((err) => console.log(err));
+
+db
   .sync()
   .then(() => {
     app.listen(PORT, console.log(`Server started on port ${PORT}`));

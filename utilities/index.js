@@ -1,17 +1,14 @@
 const bcrypt = require("bcryptjs");
-const hash = async (Password) => {
-  let hashed = "";
-  await bcrypt.genSalt(
-    10,
-    async (err, salt) =>
-      await bcrypt.hash(Password, salt, (err, hash) => {
-        if (err) throw err;
-        hashed = hash;
-      })
-  );
+const hash = async (password) => {
   return new Promise((resolve, reject) => {
-    resolve(hashed);
-    reject(err);
+    bcrypt.genSalt(10, async (err, salt) =>
+      bcrypt.hash(password, salt, async (err, hash) => {
+        if (err) reject(err);
+        else {
+          resolve(hash);
+        }
+      })
+    );
   });
 };
 

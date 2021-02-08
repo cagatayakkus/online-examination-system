@@ -1,6 +1,6 @@
 const { nanoid } = require("nanoid");
-const sequelize = require("../sequelize");
-const { Exam, Question } = sequelize.models;
+const db = require("../db");
+const { Exam, Question } = db.models;
 
 const examController = {
   async create(req, res) {

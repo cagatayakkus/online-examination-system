@@ -1,4 +1,4 @@
-const extraSetup = (sequelize) => {
+const extraSetup = (db) => {
   const {
     User,
     Role,
@@ -7,12 +7,9 @@ const extraSetup = (sequelize) => {
     Enrollment,
     TakenExam,
     TakenExamAnswer,
-  } = sequelize.models;
+  } = db.models;
 
   User.belongsTo(Role, {
-    foreignKey: "Type",
-  });
-  Role.hasOne(User, {
     foreignKey: "Type",
   });
 

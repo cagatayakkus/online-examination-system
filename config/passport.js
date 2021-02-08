@@ -1,7 +1,7 @@
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
-const sequelize = require("../sequelize");
-const { User, Role, Exam } = sequelize.models;
+const db = require("../db");
+const { User, Role, Exam } = db.models;
 
 module.exports = function (passport) {
   passport.use(

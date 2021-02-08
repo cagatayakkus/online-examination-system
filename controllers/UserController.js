@@ -1,5 +1,5 @@
-const sequelize = require("../sequelize");
-const { User } = sequelize.models;
+const db = require("../db");
+const { User } = db.models;
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 
@@ -74,7 +74,7 @@ const courseContoller = {
                 LastName,
                 Email,
                 Password: hash,
-                Role,
+                Type: Role,
               })
                 .then((user) => {
                   req.flash(
