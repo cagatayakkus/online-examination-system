@@ -4,20 +4,29 @@
     "password": "Cagatay123*",
     "database": "examination",
     "host": "cagatayakkuscc20.postgres.database.azure.com",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": true
+    }
   },
   "test": {
     "username": "cgtyakks",
     "password": "Cagatay123*",
     "database": "examination",
     "host": "cagatayakkuscc20.postgres.database.azure.com",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": true
+    }
   },
   "production": {
     "username": "cgtyakks",
     "password": "Cagatay123*",
     "database": "examination",
     "host": "cagatayakkuscc20.postgres.database.azure.com",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": true
+    }
   }
 }

@@ -13,7 +13,9 @@ const sequelize = new Sequelize({
 const db = new Sequelize("examination", "cgtyakks", "Cagatay123*", {
   host: "cagatayakkuscc20.postgres.database.azure.com",
   dialect: "postgres",
-  ssl: true,
+  dialectOptions: {
+    ssl: true,
+  },
 });
 
 const modelDefiners = [
