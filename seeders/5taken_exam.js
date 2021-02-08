@@ -13,8 +13,8 @@ module.exports = {
      */
     return queryInterface.bulkInsert("TakenExams", [
       {
-        ID: 1,
-        UserID: 2,
+        ID: 0,
+        UserID: 1,
         ExamID: "cAt0lk",
       },
     ]);
@@ -29,8 +29,8 @@ module.exports = {
      */
     return queryInterface.bulkDelete("TakenExams", [
       {
-        ID: 1,
-        UserID: 2,
+        ID: 0,
+        UserID: 1,
         ExamID: "cAt0lk",
       },
     ]);

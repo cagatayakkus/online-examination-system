@@ -25,15 +25,6 @@ const examController = {
       .then((exam) => res.render("Question/create", { user, exam }))
       .catch((err) => res.send(err));
   },
-  async edit(req, res) {
-    const exam = await Exam.findByPk(req.params.ID);
-    res.send(exam);
-    /*
-    res.render("Exam/edit", {
-      user: req.user,
-    });
-    */
-  },
 
   async enroll(req, res) {
     //oH7c9
@@ -77,7 +68,7 @@ const examController = {
     });
     if (taken) {
       req.flash("error_msg", `You have already completed the exam!`);
-      res.redirect("/dashboard")
+      res.redirect("/dashboard");
     } else {
       const ISOFormat = new Date().toISOString();
       const currentDate = new Date(ISOFormat);

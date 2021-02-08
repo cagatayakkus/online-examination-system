@@ -13,11 +13,11 @@ module.exports = {
      */
     return queryInterface.bulkInsert("Enrollments", [
       {
-        UserID: 2,
+        UserID: 1,
         ExamID: "cAt0lk",
       },
       {
-        UserID: 2,
+        UserID: 1,
         ExamID: "p0lk4c",
       },
     ]);
@@ -32,11 +32,11 @@ module.exports = {
      */
     return queryInterface.bulkDelete("Enrollments", [
       {
-        UserID: 2,
+        UserID: 1,
         ExamID: "cAt0lk",
       },
       {
-        UserID: 2,
+        UserID: 1,
         ExamID: "p0lk4c",
       },
     ]);

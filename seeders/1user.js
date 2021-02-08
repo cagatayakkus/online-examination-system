@@ -24,7 +24,7 @@ module.exports = {
 
     return queryInterface.bulkInsert("Users", [
       {
-        ID: 1,
+        ID: 0,
         FirstName: "John",
         LastName: "Doe",
         Email: "john@doe.com",
@@ -32,7 +32,7 @@ module.exports = {
         Type: "Teacher",
       },
       {
-        ID: 2,
+        ID: 1,
         FirstName: "Jane",
         LastName: "Doe",
         Email: "jane@doe.com",
@@ -51,10 +51,10 @@ module.exports = {
      */
     return queryInterface.bulkDelete("Users", [
       {
-        ID: 1,
+        ID: 0,
       },
       {
-        ID: 2,
+        ID: 1,
       },
     ]);
   },

@@ -14,13 +14,13 @@ module.exports = {
     
     return queryInterface.bulkInsert("TakenExamAnswers", [
       {
-        TakenExamID: 1,
-        QuestionID: 1,
+        TakenExamID: 0,
+        QuestionID: 0,
         Answer: "A",
       },
       {
-        TakenExamID: 1,
-        QuestionID: 2,
+        TakenExamID: 0,
+        QuestionID: 1,
         Answer: "B",
       },
     ]);
@@ -35,12 +35,12 @@ module.exports = {
      */
     return queryInterface.bulkDelete("TakenExamAnswers", [
       {
-        TakenExamID: 1,
-        QuestionID: 1,
+        TakenExamID: 0,
+        QuestionID: 0,
       },
       {
-        TakenExamID: 1,
-        QuestionID: 2,
+        TakenExamID: 0,
+        QuestionID: 1,
       },
     ]);
   },

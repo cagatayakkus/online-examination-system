@@ -13,7 +13,7 @@ module.exports = {
      */
     return queryInterface.bulkInsert("Questions", [
       {
-        ID: 1,
+        ID: 0,
         Text: "Which of the following are cloud computing service models?",
         OptionA: "IaaS",
         OptionB: "KaaS",
@@ -24,7 +24,7 @@ module.exports = {
 
       },
       {
-        ID: 2,
+        ID: 1,
         Text: "Which of the following is true for the SaaS model?",
         OptionA: "It only offers the development tools.",
         OptionB: "It offers the primitive infrastructure.",
@@ -34,7 +34,7 @@ module.exports = {
         ExamID: "cAt0lk",
       },
       {
-        ID: 3,
+        ID: 2,
         Text: "Which of the following are cloud computing service models?",
         OptionA: "TaaS",
         OptionB: "KaaS",
@@ -55,13 +55,13 @@ module.exports = {
      */
     return queryInterface.bulkDelete("Questions", [
       {
+        ID: 0,
+      },
+      {
         ID: 1,
       },
       {
         ID: 2,
-      },
-      {
-        ID: 3,
       },
     ]);
   },

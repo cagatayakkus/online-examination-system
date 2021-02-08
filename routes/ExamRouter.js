@@ -25,25 +25,16 @@ router.post(
   examController.create
 );
 
-router.get(
-  "/edit/:ID",
-  ensureAuthenticated,
-  (req, res, next) => {
-    ensureAuthorized(req.user.Type, "Teacher", req, res, next);
-  },
-  examController.edit
-);
+router.get("/:ID", ensureAuthenticated, examController.start);
 
-router.get("/:ID", ensureAuthenticated, examController.start)
+router.get("/take/:ID", ensureAuthenticated, examController.take);
 
-router.get("/take/:ID", ensureAuthenticated, examController.take)
+router.post("/take/:ID", ensureAuthenticated, examController.takeHandler);
 
-router.post("/take/:ID", ensureAuthenticated, examController.takeHandler)
+router.get("/details/:ID", ensureAuthenticated, examController.details);
 
-router.get("/details/:ID", ensureAuthenticated, examController.details)
+router.get("/paper/:ID", ensureAuthenticated, examController.paper);
 
-router.get("/paper/:ID", ensureAuthenticated, examController.paper)
-
-router.post('/enroll', ensureAuthenticated, examController.enroll);
+router.post("/enroll", ensureAuthenticated, examController.enroll);
 
 module.exports = router;
