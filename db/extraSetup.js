@@ -18,7 +18,7 @@ const extraSetup = (db) => {
 
   Exam.hasMany(Question);
   Question.belongsTo(Exam);
-
+  
   User.belongsToMany(Exam, { through: Enrollment });
   Exam.belongsToMany(User, { through: Enrollment });
   Enrollment.belongsTo(Exam);
