@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "postgres",
+    "username": "cgtyakks",
     "password": "Cagatay123*",
     "database": "examination",
-    "host": "agatayakkuscc20.postgres.database.azure.com",
+    "host": "cagatayakkuscc20.postgres.database.azure.com",
     "dialect": "postgres"
   },
   "test": {
-    "username": "postgres",
+    "username": "cgtyakks",
     "password": "Cagatay123*",
     "database": "examination",
-    "host": "agatayakkuscc20.postgres.database.azure.com",
+    "host": "cagatayakkuscc20.postgres.database.azure.com",
     "dialect": "postgres"
   },
   "production": {
-    "username": "postgres",
+    "username": "cgtyakks",
     "password": "Cagatay123*",
     "database": "examination",
-    "host": "agatayakkuscc20.postgres.database.azure.com",
+    "host": "cagatayakkuscc20.postgres.database.azure.com",
     "dialect": "postgres"
   }
 }
