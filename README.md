@@ -22,7 +22,7 @@ You need to define some configuration values such as **config.json** and **.env*
 
 #### into your project_path/config/config.json
 
-```json
+```javascript
 {
   "development": {
     "username": "YOUR_DB_USERNAME",
