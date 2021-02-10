@@ -1,7 +1,6 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const cors = require("cors");
-const { Sequelize } = require("sequelize");
 const db = require("./db");
 const userRouter = require("./routes/UserRouter");
 const examRouter = require("./routes/ExamRouter");
@@ -57,15 +56,13 @@ app.use("/user", userRouter);
 
 app.use("/question", questionRouter);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 1337;
 
-db
-  .authenticate()
+db.authenticate()
   .then(() => console.log("DB connection is successful"))
   .catch((err) => console.log(err));
 
-db
-  .sync()
+db.sync()
   .then(() => {
     app.listen(PORT, console.log(`Server started on port ${PORT}`));
   })

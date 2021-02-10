@@ -1,4 +1,5 @@
 const { nanoid } = require("nanoid");
+const date = require("date-and-time");
 const db = require("../db");
 const {
   User,
@@ -70,8 +71,11 @@ const examController = {
       req.flash("error_msg", `You have already completed the exam!`);
       res.redirect("/dashboard");
     } else {
-      const ISOFormat = new Date().toISOString();
-      const currentDate = new Date(ISOFormat);
+      const currentDate = new Date(
+        date.format(date.addHours(new Date(), 3), "YYYY-MM-DDTHH:mm:ss")
+      );
+
+      console.log(currentDate)
 
       const startHour = exam.StartAt.split(":")[0].padStart(2, "0");
       const startMinute = exam.StartAt.split(":")[1].padStart(2, "0");
@@ -89,6 +93,8 @@ const examController = {
         });
         res.render("Exam/take", { user: req.user, exam, questions });
       } else {
+        console.log(currentDate - examStart);
+        console.log(currentDate - examFinish);
         req.flash("error_msg", `You can not enter this exam!`);
         res.redirect("/dashboard");
       }
